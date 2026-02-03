@@ -40,3 +40,7 @@ pub fn clone(repo_url: &str, dest: &Path) -> Result<(), String> {
 pub fn fetch_all(repo_dir: &Path) -> Result<(), String> {
     run(&["fetch", "--all", "--prune"], Some(repo_dir)).map(|_| ())
 }
+
+pub fn reset_hard(repo_dir: &Path, ref_name: &str) -> Result<(), String> {
+    run(&["reset", "--hard", ref_name], Some(repo_dir)).map(|_| ())
+}
