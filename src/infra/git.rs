@@ -36,3 +36,7 @@ pub fn clone(repo_url: &str, dest: &Path) -> Result<(), String> {
     )
     .map(|_| ())
 }
+
+pub fn fetch(repo_dir: &Path) -> Result<(), String> {
+    run(&["fetch", "--all", "--prune"], Some(repo_dir)).map(|_| ())
+}
