@@ -20,3 +20,7 @@ fn run(args: &[&str], cwd: Option<&Path>) -> Result<String, String> {
     }
     Ok(String::from_utf8_lossy(&output.stdout).trim().to_string())
 }
+
+pub fn is_available() -> Result<(), String> {
+    run(&["--version"], None).map(|_| ())
+}
