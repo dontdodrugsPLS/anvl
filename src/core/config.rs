@@ -29,7 +29,20 @@ impl Config {
 }
 
 impl Config {
+    pub fn init() -> Result<(), String> {
+        let path = Self::path()?;
+
+        if path.exists() {
+            return Ok(());
+        }
+        Config::default().save()
+    }
+}
+
+impl Config {
     pub fn get() -> Result<Self, String> {
+        Self::init()?;
+
         let path = Self::path()?;
         let json =
             fs::read_to_string(&path).map_err(|e| format!("failed to read config file {e}"))?;
