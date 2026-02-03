@@ -32,7 +32,19 @@ impl Lockfile {
         let path = root.join("anvl.lock.json");
         let json = serde_json::to_string_pretty(self)
             .map_err(|e| format!("failed to serialize lockfile: {e}"))?;
+
         fs::write(&path, json).map_err(|e| format!("failed to write lockfile: {e}"))?;
         Ok(())
+    }
+}
+
+impl Lockfile {
+    pub fn read_from(&self, root: &Path) -> Result<Self, String> {
+        let path = root.join("anvl.lock.json");
+        let data = fs::read_to_string(&path).map(|e| format!("failed to read lockfile: {e}"))?;
+        let lockfile: Lockfile =
+            serde_json::from_str(&data).map_err(|e| format!("invalid lockfile format: {e}"))?;
+
+        Ok(Lockfile)
     }
 }
