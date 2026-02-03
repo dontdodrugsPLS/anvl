@@ -1,14 +1,21 @@
 use serde::{Deserialize, Serialize};
-use std::{
-    fs,
-    path::{Path, PathBuf},
-};
+use std::{fs, path::PathBuf};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Config {
     repo: String,
     anvl_storage_path: String,
     always_push: bool,
+}
+
+impl Default for Config {
+    fn default() -> Self {
+        Self {
+            repo: String::new(),
+            anvl_storage_path: String::new(),
+            always_push: false,
+        }
+    }
 }
 
 impl Config {
