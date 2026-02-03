@@ -26,3 +26,13 @@ impl Lockfile {
         }
     }
 }
+
+impl Lockfile {
+    pub fn write_to(&self, root: &Path) -> Result<(), String> {
+        let path = root.join("anvl.lock.json");
+        let json = serde_json::to_string_pretty(self)
+            .map_err(|e| format!("failed to serialize lockfile: {e}"))?;
+        fs::write(&path, json).map_err(|e| format!("failed to write lockfile: {e}"))?;
+        Ok(())
+    }
+}
