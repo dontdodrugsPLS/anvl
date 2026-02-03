@@ -48,3 +48,15 @@ impl Lockfile {
         Ok(lockfile)
     }
 }
+
+impl Lockfile {
+    pub fn validate(&self) -> result<Self, String> {
+        if self.schema_version != 1 {
+            return Err(format!(
+                "unsupported lockfile schema version {}",
+                self.schema_version
+            ));
+        }
+        Ok(())
+    }
+}
