@@ -64,5 +64,6 @@ pub fn load(path: &Path) -> Result<ModuleMeta, String> {
     let meta: ModuleMeta = toml::from_str(&text)
         .map_err(|e| format!("invalid module TOML metadata {}: {e}", path.display()))?;
 
+    meta.validate(path)?;
     Ok(meta)
 }
