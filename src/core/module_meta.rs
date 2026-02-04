@@ -45,3 +45,12 @@ pub struct ProvidesItem {
     #[serde(default)]
     pub desc: String,
 }
+
+pub fn load(path: &Path) -> Result<ModuleMeta, String> {
+    let text =
+        fs::read_to_string(path).map_err(|e| format!("failed to read {}: {e}", path.display()))?;
+    let meta: ModuleMeta = toml::from_str(&text)
+        .map_err(|e| format!("invalid module TOML metadata {}: {e}", path.display()))?;
+
+    Ok(meta)
+}
