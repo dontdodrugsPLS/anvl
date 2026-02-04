@@ -12,7 +12,7 @@ It focuses on three things:
 
 ## Why did I even create Anvl ?
 
-C projects tend to repeat exactly the same problems
+C projects tend to repeat exactly the same problems:
 
 - With 2 to 4 weeks to deliver a project, often while juggling several projects at the same time, you can’t afford to lose hours setting up the same structure again and again.
 - Writing your own library is usually a good idea, but reusing it blindly isn’t. Most projects only need a few functions, and you still have to ensure that every reused feature respects the authorized functions defined by the subject.
