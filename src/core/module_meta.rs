@@ -46,6 +46,18 @@ pub struct ProvidesItem {
     pub desc: String,
 }
 
+impl ModuleMeta {
+    pub fn validate(&self, path: &Path) -> Result<(), String> {
+        if self.name.trim().is_empty() {
+            return Err(format!(
+                "invalid module.toml (missing name): {}",
+                path.display()
+            ));
+        }
+        Ok(())
+    }
+}
+
 pub fn load(path: &Path) -> Result<ModuleMeta, String> {
     let text =
         fs::read_to_string(path).map_err(|e| format!("failed to read {}: {e}", path.display()))?;
