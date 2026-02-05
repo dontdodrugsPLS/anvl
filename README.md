@@ -78,8 +78,6 @@ anvl create c:cli modules/cli/cli --push
 * Creates a matching test file in `tests/modules/cli` using a project-specific test template if available, falls back to the global test template otherwise
 * Automatically adds both files to the Makefile
 
----
-
 > [!NOTE]
 >
 > Some commands accept the `--push` flag.
