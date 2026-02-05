@@ -49,7 +49,6 @@ anvl init bin my_project --push
 
 → Fetches the `bin` template from your Anvl repository
 → Renames the binary, includes, and structure to `my_project`
-→ Optionally commits and pushes the result
 
 ### List available modules
 
@@ -67,7 +66,7 @@ anvl install io str vec --push
 
 → Installs `io`, `str`, and `vec`
 → Automatically resolves and installs their dependencies
-→ Copies the code directly into the project (nothing hidden)
+→ Copies the code directly into the project
 
 ### Create files from templates
 
@@ -76,8 +75,7 @@ anvl create c:cli modules/cli/cli --push
 ```
 
 → Creates `cli.c` in `src/modules/cli` using the `c:cli` template
-→ Creates a matching test file in `tests/modules/cli`
-→ Uses a project-specific test template if available, falls back to the global test template otherwise
+→ Creates a matching test file in `tests/modules/cli` using a project-specific test template if available, falls back to the global test template otherwise
 → Automatically adds both files to the Makefile
 
 > [!NOTE]
