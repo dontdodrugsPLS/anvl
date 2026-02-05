@@ -47,8 +47,8 @@ Anvl works **with** your existing workflow, not **against** it.
 anvl init bin my_project --push
 ```
 
-→ Fetches the `bin` template from your Anvl repository
-→ Renames the binary, includes, and structure to `my_project`
+* Fetches the `bin` template from your Anvl repository
+* Renames the binary, includes, and structure to `my_project`
 
 ### List available modules
 
@@ -56,7 +56,7 @@ anvl init bin my_project --push
 anvl list
 ```
 
-→ Lists every module available in your **local Anvl repository cache**
+* Lists every module available in your **local Anvl repository cache**
 
 ### Install modules
 
@@ -64,9 +64,9 @@ anvl list
 anvl install io str vec --push
 ```
 
-→ Installs `io`, `str`, and `vec`
-→ Automatically resolves and installs their dependencies
-→ Copies the code directly into the project
+* Installs `io`, `str`, and `vec`
+* Automatically resolves and installs their dependencies
+* Copies the code directly into the project
 
 ### Create files from templates
 
@@ -74,9 +74,9 @@ anvl install io str vec --push
 anvl create c:cli modules/cli/cli --push
 ```
 
-→ Creates `cli.c` in `src/modules/cli` using the `c:cli` template
-→ Creates a matching test file in `tests/modules/cli` using a project-specific test template if available, falls back to the global test template otherwise
-→ Automatically adds both files to the Makefile
+* Creates `cli.c` in `src/modules/cli` using the `c:cli` template
+* Creates a matching test file in `tests/modules/cli` using a project-specific test template if available, falls back to the global test template otherwise
+* Automatically adds both files to the Makefile
 
 > [!NOTE]
 > Some commands accept the `--push` flag.
