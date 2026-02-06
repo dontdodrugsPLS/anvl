@@ -22,5 +22,8 @@ pub fn find_project_root() -> Result<ProjectPaths, String> {
             break;
         }
     }
-    Err("not inside an Anvl project (anvl.lock.json not found in parent directory)".to_string())
+    Err(
+        "not inside an Anvl project (anvl.lock.json not found in directory and all his parents)"
+            .to_string(),
+    )
 }
