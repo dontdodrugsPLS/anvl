@@ -86,3 +86,7 @@ anvl create c:cli modules/cli/cli --push
 > [!NOTE]
 >
 > This is only the **visible tip of the iceberg**.
+
+### To Do
+
+- add config validation when get or set utils are called.
