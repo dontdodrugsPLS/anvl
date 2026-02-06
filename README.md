@@ -19,11 +19,11 @@ If you’ve worked on C projects at school for any amount of time, you’ve prob
   With 2–4 weeks per project (often several at once), wasting hours recreating the same structure is not an option.
 
 * **Library reuse is useful… until it isn’t**
-  Writing your own library is great—but reusing it blindly isn’t.
+  Writing your own library is great, but reusing it blindly isn’t.
   Most projects only need *a subset* of functions, and every reused feature still needs to comply with the subject’s authorized functions.
 
 * **Makefiles aren’t hard, just exhausting**
-  Editing a Makefile isn’t complicated—but it *is* constant mental overhead.
+  Editing a Makefile isn’t complicated, but it *is* constant mental overhead.
   The best solution is not having to think about it at all.
 
 Anvl exists to remove these frictions **without hiding what’s really happening**.
