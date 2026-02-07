@@ -26,9 +26,7 @@ impl Config {
         path.push("config.json");
         Ok(path)
     }
-}
 
-impl Config {
     pub fn init() -> Result<(), String> {
         let path = Self::path()?;
 
@@ -37,9 +35,7 @@ impl Config {
         }
         Config::default().save()
     }
-}
 
-impl Config {
     pub fn get() -> Result<Self, String> {
         Self::init()?;
 
@@ -50,9 +46,7 @@ impl Config {
         serde_json::from_str(&json)
             .map_err(|e| format!("failed to parse config file {:?}: {}", path, e))
     }
-}
 
-impl Config {
     pub fn set(key: String, value: String) -> Result<(), String> {
         let mut config = Self::get()?;
 
@@ -69,9 +63,7 @@ impl Config {
         config.save()?;
         Ok(())
     }
-}
 
-impl Config {
     pub fn save(&self) -> Result<(), String> {
         let path = Self::path()?;
         if let Some(parent) = path.parent() {
