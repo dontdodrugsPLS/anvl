@@ -1,3 +1,5 @@
+use std::fs;
+
 use crate::cli::args::CacheAction;
 use crate::core::config::Config;
 use crate::core::paths;
@@ -25,5 +27,15 @@ pub fn cmd_update(verbose: bool) -> Result<(), String> {
 }
 
 pub fn cmd_clean(verbose: bool) -> Result<(), String> {
+    let anvl_storage = paths::get_cache_paths()?;
+
+    if anvl_storage.repo_dir.exists() {
+        fs::remove_dir_all(&anvl_storage.repo_dir).map_err(|e| {
+            format!(
+                "failed to remove cache repo '{}': {e}",
+                anvl_storage.repo_dir.display()
+            )
+        })?;
+    }
     Ok(())
 }
